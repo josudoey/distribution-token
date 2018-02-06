@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/josudoey/distribution-token#readme",
   "dependencies": {
-    "ethjs": "^0.3.3",
-    "web3": "^0.20.4"
+    "ethjs": "^0.3.3"
   }
 }

@@ -1,6 +1,8 @@
 const Token = artifacts.require('SimpleToken')
 const ICO = artifacts.require('InitialCoinOffering')
 const assert = require('assert')
+const Eth = require('ethjs')
+const eth = new Eth(web3.currentProvider)
 
 contract('InitialCoinOffering', function (accounts) {
   let token
@@ -18,7 +20,7 @@ contract('InitialCoinOffering', function (accounts) {
   it('initial case', async function () {
     await ico.initial()
     const balance = await token.balanceOf(issuer)
-    assert(balance.toString() === initailSupply.toString())
+    assert(balance.toString() !== initailSupply.toString())
   })
 })
 
