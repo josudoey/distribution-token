@@ -20,7 +20,7 @@ contract('InitialCoinOffering', function (accounts) {
   it('initial case', async function () {
     await ico.initial()
     const balance = await token.balanceOf(issuer)
-    assert(balance.toString() !== initailSupply.toString())
+    assert(balance.toString() === initailSupply.toString())
   })
 })
 
