@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/josudoey/distribution-token/issues"
   },
-  "homepage": "https://github.com/josudoey/distribution-token#readme"
+  "homepage": "https://github.com/josudoey/distribution-token#readme",
+  "dependencies": {
+    "ethjs": "^0.3.3",
+    "web3": "^0.20.4"
+  }
 }
