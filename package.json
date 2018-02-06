@@ -1,0 +1,24 @@
+{
+  "name": "distribution-token",
+  "version": "1.0.0",
+  "description": "ether contract for distribution token",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josudoey/distribution-token.git"
+  },
+  "keywords": [
+    "ether",
+    "token",
+    "contract"
+  ],
+  "author": "Joey Fang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josudoey/distribution-token/issues"
+  },
+  "homepage": "https://github.com/josudoey/distribution-token#readme"
+}
