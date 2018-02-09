@@ -25,7 +25,7 @@ contract DistributionToken is StandardToken, Distributable {
    /**
    * @dev to burn tokens
    * @param _from The address that will decrease tokens for burn.
-   * @param _value The amount of tokens to mint.
+   * @param _value The amount of tokens to burn.
    * @return A boolean that indicates if the operation was successful.
    */
   function burn(address _from, uint256 _value) public onlyDealers returns (bool) {
