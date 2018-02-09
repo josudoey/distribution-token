@@ -5,7 +5,7 @@ const assert = require('assert')
 const Eth = require('ethjs')
 const eth = new Eth(web3.currentProvider)
 
-contract('InitialCoinOffering', function (accounts) {
+contract('CrowdSale', function (accounts) {
   let token
   let ico
   let crowdsale
@@ -26,7 +26,7 @@ contract('InitialCoinOffering', function (accounts) {
     assert(balance.toString() === initailSupply.toString())
   })
 
-  it('crowdsale case', async function () {
+  it('base sale case', async function () {
     const rate = 10
     crowdsale = await CrowdSale.new(token.address, rate)
     await token.transfer(crowdsale.address, 1000, {

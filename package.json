@@ -4,7 +4,8 @@
   "description": "ether contract for distribution token",
   "main": "index.js",
   "scripts": {
-    "test": "truffle test"
+    "test": "truffle test",
+    "flat": "truffle-flattener"
   },
   "repository": {
     "type": "git",
@@ -23,10 +24,12 @@
   "homepage": "https://github.com/josudoey/distribution-token#readme",
   "dependencies": {
     "ethereumjs-testrpc": "^6.0.3",
-    "ethjs": "^0.3.3"
+    "ethjs": "^0.3.3",
+    "zeppelin-solidity": "^1.6.0"
   },
   "devDependencies": {
     "ganache-cli": "^6.0.3",
-    "truffle": "^4.0.6"
+    "truffle": "^4.0.6",
+    "truffle-flattener": "^1.2.0"
   }
 }
