@@ -22,18 +22,26 @@ contract('CrowdSale', function (accounts) {
 
   it('initial case', async function () {
     await ico.initial()
-    const balance = await token.balanceOf(issuer)
-    assert(balance.toString() === initailSupply.toString())
-  })
-
-  it('base sale case', async function () {
+    let tokenBalance = await token.balanceOf(issuer)
+    assert(tokenBalance.toString() === initailSupply.toString())
     const rate = 10
-    crowdsale = await CrowdSale.new(token.address, rate)
+    crowdsale = await CrowdSale.new(token.address, rate, {
+      from: issuer
+    })
     await token.transfer(crowdsale.address, 1000, {
       from: issuer
     })
-    const balance = await token.balanceOf(issuer)
-    assert(balance.toString() === '9000')
+
+    const saleAmount = await token.balanceOf(crowdsale.address)
+    assert(saleAmount.toString() === '1000')
+
+    tokenBalance = await token.balanceOf(issuer)
+    assert(tokenBalance.toString() === '9000')
+
+  })
+
+  it('base sale case', async function () {
+    let beforeBalance = await eth.getBalance(issuer)
 
     const tx = await eth.sendTransaction({
       from: guest,
@@ -48,6 +56,10 @@ contract('CrowdSale', function (accounts) {
 
     const guestBalance = await token.balanceOf(guest)
     assert(guestBalance.toString() === '200')
+
+    let afterBalance = await eth.getBalance(issuer)
+
+    assert(afterBalance.sub(beforeBalance).toString() === '20')
 
   })
 

@@ -7,7 +7,15 @@ contract CrowdSale is Ownable {
 
   DistributionToken public token;
 
-  event Sale(address indexed customer, uint256 value, uint256 amount);
+
+    /**
+   * event for token purchase logging
+   * @param purchaser who paid for the tokens
+   * @param beneficiary who got the tokens
+   * @param value weis paid for purchase
+   * @param amount amount of tokens purchased
+   */
+  event TokenPurchase(address indexed purchaser, address indexed beneficiary, uint256 value, uint256 amount);
 
   uint256 public totalSales;
 
@@ -35,7 +43,7 @@ contract CrowdSale is Ownable {
 
     token.transfer(msg.sender, amount);
     wallet.transfer(msg.value);
-    Sale(msg.sender, msg.value, amount);
+    TokenPurchase(msg.sender, msg.sender, msg.value, amount);
   }
 
   function remaining() public view returns (uint256) {
