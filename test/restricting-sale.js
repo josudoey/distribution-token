@@ -44,7 +44,7 @@ contract('RestrictingSale', function (accounts) {
     assert(tokenBalance.toString() === '0')
 
 
-    await saleContract.transferInspector(inspector, {
+    await saleContract.changeInspector(inspector, {
       from: issuer
     })
 

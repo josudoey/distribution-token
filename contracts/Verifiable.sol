@@ -19,7 +19,7 @@ contract Verifiable is Ownable {
     _;
   }
 
-  function transferInspector(address newInspector) public onlyOwner {
+  function changeInspector(address newInspector) public onlyOwner {
     require (newInspector != address(0));
     inspector = newInspector;
   }

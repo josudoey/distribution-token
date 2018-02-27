@@ -34,8 +34,8 @@ contract('Verifiable', function (accounts) {
 
   })
 
-  it('transferInspector', async function () {
-    await contract.transferInspector(inspector)
+  it('changeInspector', async function () {
+    await contract.changeInspector(inspector)
     const hash = util.sha3(Buffer.from(guest.replace(/^0x/, ''), 'hex'))
     let signature = util.ecsign(hash, inspectorKey)
     let vTicket = '0x' + Buffer.from([signature.v]).toString('hex')
