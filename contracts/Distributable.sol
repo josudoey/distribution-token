@@ -1,5 +1,5 @@
-pragma solidity ^0.4.18;
-import "zeppelin-solidity/contracts/ownership/Ownable.sol";
+pragma solidity ^0.4.21;
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 /**
  * @title Distributable
@@ -20,13 +20,13 @@ contract Distributable is Ownable {
     require(newDealer != address(0));
     require(!dealership[newDealer]);
     dealership[newDealer] = true;
-    Trust(newDealer);
+    emit Trust(newDealer);
   }
 
   function distrust(address dealer) public onlyOwner {
     require(dealership[dealer]);
     dealership[dealer] = false;
-    Distrust(dealer);
+    emit Distrust(dealer);
   }
 
 }

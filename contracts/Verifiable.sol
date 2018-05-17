@@ -1,10 +1,10 @@
-pragma solidity ^0.4.18;
-import "zeppelin-solidity/contracts/ownership/Ownable.sol";
+pragma solidity ^0.4.21;
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 contract Verifiable is Ownable {
   address public inspector;
 
-  function Verifiable() public {
+  constructor() public {
     inspector = msg.sender;
   }
 

@@ -23,12 +23,12 @@
   },
   "homepage": "https://github.com/josudoey/distribution-token#readme",
   "dependencies": {
-    "ethereumjs-util": "^5.1.4",
-    "ethjs": "^0.3.3",
-    "zeppelin-solidity": "^1.6.0"
+    "ethereumjs-util": "^5.2.0",
+    "ethjs": "^0.4.0",
+    "openzeppelin-solidity": "^1.9.0",
+    "truffle": "^4.1.7"
   },
   "devDependencies": {
-    "truffle": "^4.0.6",
-    "truffle-flattener": "^1.2.0"
+    "truffle-flattener": "^1.2.5"
   }
 }

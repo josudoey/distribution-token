@@ -1,5 +1,5 @@
-pragma solidity ^0.4.18;
-import "zeppelin-solidity/contracts/ownership/Ownable.sol";
+pragma solidity ^0.4.21;
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 import "../DistributionToken.sol";
 import "../Verifiable.sol";
 
@@ -28,7 +28,7 @@ contract RestrictingSale is Verifiable {
 
   uint256 public weiRaised;
 
-  function RestrictingSale(DistributionToken _token,  uint256 _rate) public {
+  constructor(DistributionToken _token,  uint256 _rate) public {
     require(_token != address(0));
     require(_rate != 0);
     token = _token;
@@ -45,7 +45,7 @@ contract RestrictingSale is Verifiable {
 
     token.transfer(msg.sender, amount);
     wallet.transfer(msg.value);
-    TokenPurchase(msg.sender, beneficiary, msg.value, amount);
+    emit TokenPurchase(msg.sender, beneficiary, msg.value, amount);
   }
 
   function remaining() public view returns (uint256) {

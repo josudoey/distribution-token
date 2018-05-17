@@ -1,5 +1,5 @@
-pragma solidity ^0.4.18;
-import "zeppelin-solidity/contracts/ownership/Ownable.sol";
+pragma solidity ^0.4.21;
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 import "../DistributionToken.sol";
 
 contract CrowdSale is Ownable {
@@ -27,7 +27,7 @@ contract CrowdSale is Ownable {
 
   uint256 public weiRaised;
 
-  function CrowdSale(DistributionToken _token,  uint256 _rate) public {
+  constructor(DistributionToken _token,  uint256 _rate) public {
     require(_token != address(0));
     require(_rate != 0);
     token = _token;
@@ -43,7 +43,7 @@ contract CrowdSale is Ownable {
 
     token.transfer(msg.sender, amount);
     wallet.transfer(msg.value);
-    TokenPurchase(msg.sender, msg.sender, msg.value, amount);
+    emit TokenPurchase(msg.sender, msg.sender, msg.value, amount);
   }
 
   function remaining() public view returns (uint256) {

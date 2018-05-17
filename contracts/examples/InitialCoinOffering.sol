@@ -1,6 +1,6 @@
 
-pragma solidity ^0.4.18;
-import "zeppelin-solidity/contracts/ownership/Ownable.sol";
+pragma solidity ^0.4.21;
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 import "../DistributionToken.sol";
 
 contract InitialCoinOffering is Ownable {
@@ -8,7 +8,7 @@ contract InitialCoinOffering is Ownable {
   address issuer;
   uint256 initialSupply;
 
-  function InitialCoinOffering(DistributionToken _token, address _issuer, uint256 _initialSupply) public {
+  constructor(DistributionToken _token, address _issuer, uint256 _initialSupply) public {
     require(_token != address(0));
     require(_issuer != address(0));
     token = _token;
